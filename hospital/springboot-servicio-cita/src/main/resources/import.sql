@@ -1,0 +1,13 @@
+INSERT INTO citas (usuario_id, fecha_cita, motivo, create_at) VALUES (1, '2025-10-05', 'Consulta general', NOW());
+INSERT INTO citas (usuario_id, fecha_cita, motivo, create_at) VALUES (2, '2025-10-06', 'Chequeo rutinario', NOW());
+INSERT INTO citas (usuario_id, fecha_cita, motivo, create_at) VALUES (3, '2025-10-07', 'Dolor de cabeza persistente', NOW());
+INSERT INTO citas (usuario_id, fecha_cita, motivo, create_at) VALUES (4, '2025-10-08', 'Consulta pediátrica', NOW());
+INSERT INTO citas (usuario_id, fecha_cita, motivo, create_at) VALUES (5, '2025-10-09', 'Control de diabetes', NOW());
+INSERT INTO citas (usuario_id, fecha_cita, motivo, create_at) VALUES (1, '2025-10-10', 'Consulta dental', NOW());
+INSERT INTO citas (usuario_id, fecha_cita, motivo, create_at) VALUES (2, '2025-10-11', 'Dolor abdominal', NOW());
+INSERT INTO citas (usuario_id, fecha_cita, motivo, create_at) VALUES (3, '2025-10-12', 'Consulta de nutrición', NOW());
+INSERT INTO citas (usuario_id, fecha_cita, motivo, create_at) VALUES (4, '2025-10-13', 'Chequeo post-operatorio', NOW());
+INSERT INTO citas (usuario_id, fecha_cita, motivo, create_at) VALUES (5, '2025-10-14', 'Consulta de ginecología', NOW());
+INSERT INTO citas (usuario_id, fecha_cita, motivo, create_at) VALUES (1, '2025-10-15', 'Problemas de insomnio', NOW());
+INSERT INTO citas (usuario_id, fecha_cita, motivo, create_at) VALUES (1, '2025-10-02', 'Consulta general', NOW());
+INSERT INTO citas (usuario_id, fecha_cita, motivo, create_at) VALUES (3, '2025-10-02', 'Consulta general', NOW());

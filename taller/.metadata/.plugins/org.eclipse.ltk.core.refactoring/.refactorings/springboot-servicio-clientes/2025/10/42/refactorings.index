@@ -1,0 +1,7 @@
+1760477718305	Rename package 'com.formaciondbi.springboot.app.usuarios'
+1760477736467	Rename type 'SpringbootServicioUsuariosApplication'
+1760477887716	Rename type 'UsuarioController'
+1760477899412	Rename type 'UsuarioDao'
+1760477904823	Rename type 'Usuario'
+1760477912430	Rename type 'IUsuarioService'
+1760477918717	Rename type 'UsuarioServiceImpl'

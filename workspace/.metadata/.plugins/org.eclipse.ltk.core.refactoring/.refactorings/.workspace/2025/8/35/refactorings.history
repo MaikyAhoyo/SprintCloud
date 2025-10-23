@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy Project &apos;springboot-servicio-item&apos;" description="Copy Project &apos;springboot-servicio-item&apos;" destination="C:/SprintCloud/workspace" element="/springboot-servicio-item" flags="7" id="org.eclipse.ltk.core.refactoring.copyproject.resource" name="springboot-servicio-membresia" stamp="1756330347138"/>
+</session>

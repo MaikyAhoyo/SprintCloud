@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: servicio-estudiantes
+          uri: lb://servicio-estudiantes
+          predicates:
+            - Path=/api/estudiantes/**
+          filters:
+            - StripPrefix=2

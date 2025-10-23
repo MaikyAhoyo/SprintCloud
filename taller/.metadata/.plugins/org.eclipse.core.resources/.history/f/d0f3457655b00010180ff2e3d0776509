@@ -1,0 +1,46 @@
+package com.formaciondbi.springboot.app.clientes.models.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.formaciondbi.springboot.app.clientes.models.dao.EstudianteDao;
+import com.formaciondbi.springboot.app.clientes.models.entity.Clientes;
+
+
+@Service
+public class EstudianteServiceImpl implements IEstudianteService{
+	
+	@Autowired
+	private EstudianteDao estudianteDao;
+	
+	@Override
+	@Transactional(readOnly = true)
+	public List<Clientes> findAll() {
+		return (List<Clientes>) estudianteDao.findAll();
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Clientes findById(Long id) {
+		return estudianteDao.findById(id).orElse(null);
+	}
+
+	@Override
+    @Transactional(readOnly = true)
+    public Clientes findByEmail(String email) {
+        return estudianteDao.findByEmail(email);
+    }
+    
+    @Override
+    public Clientes save(Clientes clientes) {
+        return estudianteDao.save(clientes);
+    }
+
+    @Override
+    public void delete(Long id) {
+        estudianteDao.deleteById(id);
+    }
+}

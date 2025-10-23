@@ -1,0 +1,13 @@
+package com.formaciondbi.springboot.app.usuarios.models.service;
+
+import java.util.List;
+
+import com.formaciondbi.springboot.app.usuarios.models.entity.Usuario;
+
+public interface IUsuarioService {
+    List<Usuario> findAll();
+    Usuario findById(Long id);
+    Usuario findByEmail(String email);
+    Usuario save(Usuario usuario);
+    void delete(Long id);
+}

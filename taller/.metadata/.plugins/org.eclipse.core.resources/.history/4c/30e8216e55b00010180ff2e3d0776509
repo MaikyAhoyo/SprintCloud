@@ -1,0 +1,13 @@
+package com.formaciondbi.springboot.app.estudiantes.models.service;
+
+import java.util.List;
+
+import com.formaciondbi.springboot.app.clientes.models.entity.Estudiante;
+
+public interface IEstudianteService {
+    List<Estudiante> findAll();
+    Estudiante findById(Long id);
+    Estudiante findByEmail(String email);
+    Estudiante save(Estudiante estudiante);
+    void delete(Long id);
+}

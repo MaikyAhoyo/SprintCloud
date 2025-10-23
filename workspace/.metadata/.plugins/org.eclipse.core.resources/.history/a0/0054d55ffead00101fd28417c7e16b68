@@ -1,0 +1,4 @@
+spring.application.name=springboot-servicio-gateway-server
+server.port=8090
+
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/

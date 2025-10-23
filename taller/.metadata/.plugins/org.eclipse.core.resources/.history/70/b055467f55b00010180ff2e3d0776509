@@ -1,0 +1,112 @@
+package com.formaciondbi.springboot.app.clientes.controllers;
+
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.formaciondbi.springboot.app.clientes.models.entity.Cliente;
+import com.formaciondbi.springboot.app.clientes.models.service.IEstudianteService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
+@RestController
+public class EstudianteController {
+	
+	@Autowired
+	private Environment env;
+	
+	@Value("${server.port}")
+	private Integer port;
+	
+	
+	@Autowired
+	private IEstudianteService estudianteService;
+	
+	@GetMapping("/listar")
+	public List<Cliente> listarTodosLosEstudiantes(){
+		return estudianteService.findAll().stream().map(estudiante -> {
+			estudiante.setPort(Integer.parseInt(env.getProperty("local.server.port")));
+			return estudiante;
+		}).collect(Collectors.toList());
+	}
+	
+	@HystrixCommand(fallbackMethod = "MetodoAlternativo")
+	@GetMapping("/listar/{id}")
+	public Cliente consultarEstudiantePorId(@PathVariable Long id) {
+		Cliente cliente = estudianteService.findById(id);
+		//Estudiante estudiante = null;
+		cliente.setPort(Integer.parseInt(env.getProperty("local.server.port")));
+		return cliente;
+	}
+	
+	public Cliente MetodoAlternativo(Long id) {
+		Cliente cliente = new Cliente();
+		Date date = new Date();
+		
+		cliente.setNombre("Gael");
+		cliente.setEdad(18);
+		cliente.setEmail("papupro@gmail.com");
+		cliente.setCreateAt(date);
+		return cliente;
+	}
+
+	@GetMapping("/email/{email}")
+	public Cliente email(@PathVariable String email) {
+		Cliente cliente = estudianteService.findByEmail(email);
+		cliente.setPort(Integer.parseInt(env.getProperty("local.server.port")));
+		return cliente;
+	}
+	
+	@PostMapping("/crear")
+	public ResponseEntity<?> registrarNuevoEstudiante(@RequestBody Cliente cliente) {
+	    Cliente estudianteExistente = estudianteService.findByEmail(cliente.getEmail());
+	    if (estudianteExistente != null) {
+	        return ResponseEntity
+	                .status(HttpStatus.CONFLICT)
+	                .body("Ya existe un usuario con el Email: " + cliente.getEmail());
+	    }
+
+	    cliente.setCreateAt(new Date());
+	    Cliente nuevoEstudiante = estudianteService.save(cliente);
+
+	    return ResponseEntity.status(HttpStatus.CREATED).body(nuevoEstudiante);
+	}
+	
+	@PutMapping("/actualizar/{id}")
+	public ResponseEntity<?> actualizarEstudiante(@PathVariable Long id, @RequestBody Cliente cliente) {
+	    Cliente estudianteExistente = estudianteService.findById(id);
+
+	    if (estudianteExistente == null) {
+	        return ResponseEntity
+	                .status(HttpStatus.NOT_FOUND)
+	                .body("No existe un estudiante con el ID: " + id);
+	    }
+
+	    estudianteExistente.setNombre(cliente.getNombre());
+	    estudianteExistente.setEdad((int) cliente.getEdad());
+	    estudianteExistente.setEmail(cliente.getEmail());
+
+	    Cliente actualizado = estudianteService.save(estudianteExistente);
+
+	    return ResponseEntity.ok(actualizado);
+	}
+
+
+	
+	@DeleteMapping("/eliminar/{id}")
+	public void eliminarEstudiante(@PathVariable Long id) {
+	    estudianteService.delete(id);
+	}
+}

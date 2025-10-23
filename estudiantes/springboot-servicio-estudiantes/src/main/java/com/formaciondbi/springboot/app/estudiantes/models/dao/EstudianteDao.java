@@ -1,0 +1,9 @@
+package com.formaciondbi.springboot.app.estudiantes.models.dao;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.formaciondbi.springboot.app.estudiantes.models.entity.Estudiante;
+
+public interface EstudianteDao extends CrudRepository<Estudiante, Long> {
+	Estudiante findByEmail(String email);
+}
