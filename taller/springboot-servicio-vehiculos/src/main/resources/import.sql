@@ -1,0 +1,9 @@
+INSERT INTO vehiculos (marca, modelo, anio, color, numero_placa, numero_serie, cliente_id, activo) VALUES ('Toyota', 'Corolla', '2020', 'Blanco', 'ABC-123', '1HGCM82633A004352', 1, true);
+INSERT INTO vehiculos (marca, modelo, anio, color, numero_placa, numero_serie, cliente_id, activo) VALUES ('Honda', 'Civic', '2019', 'Negro', 'XYZ-456', '2HGFA16578H123456', 2, true);
+INSERT INTO vehiculos (marca, modelo, anio, color, numero_placa, numero_serie, cliente_id, activo) VALUES ('Ford', 'Focus', '2021', 'Rojo', 'LMN-789', '3FAHP0HA0AR123456', 3, true);
+INSERT INTO vehiculos (marca, modelo, anio, color, numero_placa, numero_serie, cliente_id, activo) VALUES ('Chevrolet', 'Cruze', '2018', 'Gris', 'JKL-321', '1G1BE5SM0J7123456', 1, true);
+INSERT INTO vehiculos (marca, modelo, anio, color, numero_placa, numero_serie, cliente_id, activo) VALUES ('Nissan', 'Sentra', '2022', 'Azul', 'QWE-987', '3N1AB7AP4HY123456', 2, true);
+INSERT INTO vehiculos (marca, modelo, anio, color, numero_placa, numero_serie, cliente_id, activo) VALUES ('BMW', '320i', '2020', 'Blanco', 'RTY-654', 'WBA8E9G54GNU12345', 3, true);
+INSERT INTO vehiculos (marca, modelo, anio, color, numero_placa, numero_serie, cliente_id, activo) VALUES ('Audi', 'A4', '2019', 'Negro', 'UJM-852', 'WAUBFAFL5GN123456', 1, true);
+INSERT INTO vehiculos (marca, modelo, anio, color, numero_placa, numero_serie, cliente_id, activo) VALUES ('Mercedes', 'C200', '2021', 'Gris', 'HJK-963', 'WDDGF8AB1GR123456', 2, true);
+INSERT INTO vehiculos (marca, modelo, anio, color, numero_placa, numero_serie, cliente_id, activo) VALUES ('Volkswagen', 'Golf', '2022', 'Rojo', 'VBN-741', 'WVWZZZ1KZBW123456', 3, true);

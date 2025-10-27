@@ -8,3 +8,15 @@ spring:
             - Path=/api/clientes/**
           filters:
             - StripPrefix=2
+        - id: servicio-vehiculos
+          uri: lb://servicio-vehiculos
+          predicates:
+            - Path=/api/vehiculos/**
+          filters:
+            - StripPrefix=2
+        - id: servicio-reparaciones
+          uri: lb://servicio-reparaciones
+          predicates:
+           - Path=/api/reparaciones/**
+          filters:
+            - StripPrefix=2

@@ -45,22 +45,27 @@ public class ClienteController {
 	@HystrixCommand(fallbackMethod = "MetodoAlternativo")
 	@GetMapping("/listar/{id}")
 	public Cliente consultarClientePorId(@PathVariable Long id) {
-		Cliente cliente = clienteService.findById(id);
-		//Estudiante estudiante = null;
-		cliente.setPort(Integer.parseInt(env.getProperty("local.server.port")));
-		return cliente;
+	    Cliente cliente = clienteService.findById(id);
+	    if (cliente == null) {
+	        throw new RuntimeException("Cliente no encontrado con ID: " + id);
+	    }
+	    cliente.setPort(Integer.parseInt(env.getProperty("local.server.port")));
+	    return cliente;
 	}
-	
+
 	public Cliente MetodoAlternativo(Long id) {
-		Cliente cliente = new Cliente();
-		Date date = new Date();
-		
-		cliente.setNombre("Gael");
-		cliente.setEdad(18);
-		cliente.setEmail("papupro@gmail.com");
-		cliente.setCreateAt(date);
-		return cliente;
+	    Cliente cliente = new Cliente();
+	    Date date = new Date();
+	    
+	    cliente.setNombre("Gael");
+	    cliente.setEdad(18);
+	    cliente.setEmail("papupro@gmail.com");
+	    cliente.setCreateAt(date);
+	    cliente.setPort(Integer.parseInt(env.getProperty("local.server.port")));
+	    
+	    return cliente;
 	}
+
 
 	@GetMapping("/email/{email}")
 	public Cliente email(@PathVariable String email) {
