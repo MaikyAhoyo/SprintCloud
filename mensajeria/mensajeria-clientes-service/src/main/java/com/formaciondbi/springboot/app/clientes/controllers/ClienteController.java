@@ -65,6 +65,13 @@ public class ClienteController {
 	    
 	    return cliente;
 	}
+	
+	@GetMapping("/nombre/{nombre}")
+	public Cliente nombre(String nombre) {
+		Cliente cliente = clienteService.findByNombre(nombre);
+		cliente.setPort(Integer.parseInt(env.getProperty("local.server.port")));
+		return cliente;
+	}
 
 	@GetMapping("/email/{email}")
 	public Cliente email(@PathVariable String email) {
@@ -75,11 +82,18 @@ public class ClienteController {
 	
 	@PostMapping("/crear")
 	public ResponseEntity<?> registrarNuevoCliente(@RequestBody Cliente cliente) {
-	    Cliente clienteExistente = clienteService.findByEmail(cliente.getEmail());
-	    if (clienteExistente != null) {
+	    Cliente clienteEmail = clienteService.findByEmail(cliente.getEmail());
+	    if (clienteEmail != null) {
 	        return ResponseEntity
 	                .status(HttpStatus.CONFLICT)
 	                .body("Ya existe un usuario con el Email: " + cliente.getEmail());
+	    }
+	    
+	    Cliente clienteNombre = clienteService.findByNombre(cliente.getNombre());
+	    if (clienteNombre != null) {
+	        return ResponseEntity
+	                .status(HttpStatus.CONFLICT)
+	                .body("Ya existe un usuario con el Nombre: " + cliente.getNombre());
 	    }
 
 	    cliente.setCreateAt(new Date());
@@ -95,7 +109,21 @@ public class ClienteController {
 	    if (clienteExistente == null) {
 	        return ResponseEntity
 	                .status(HttpStatus.NOT_FOUND)
-	                .body("No existe un estudiante con el ID: " + id);
+	                .body("No existe un cliente con el ID: " + id);
+	    }
+
+	    Cliente clienteEmail = clienteService.findByEmail(cliente.getEmail());
+	    if (clienteEmail != null && !clienteEmail.getId().equals(id)) {
+	        return ResponseEntity
+	                .status(HttpStatus.CONFLICT)
+	                .body("Ya existe un usuario con el Email: " + cliente.getEmail());
+	    }
+
+	    Cliente clienteNombre = clienteService.findByNombre(cliente.getNombre());
+	    if (clienteNombre != null && !clienteNombre.getId().equals(id)) {
+	        return ResponseEntity
+	                .status(HttpStatus.CONFLICT)
+	                .body("Ya existe un usuario con el Nombre: " + cliente.getNombre());
 	    }
 
 	    clienteExistente.setNombre(cliente.getNombre());
@@ -107,10 +135,20 @@ public class ClienteController {
 	    return ResponseEntity.ok(actualizado);
 	}
 
-
 	
 	@DeleteMapping("/eliminar/{id}")
-	public void eliminarCliente(@PathVariable Long id) {
+	public ResponseEntity<?> eliminarCliente(@PathVariable Long id) {
+	    Cliente cliente = clienteService.findById(id);
+
+	    if (cliente == null) {
+	        return ResponseEntity
+	                .status(HttpStatus.NOT_FOUND)
+	                .body("No existe un cliente con el ID: " + id);
+	    }
+
 	    clienteService.delete(id);
+
+	    return ResponseEntity.ok("Cliente eliminado: " + cliente.getNombre());
 	}
+
 }

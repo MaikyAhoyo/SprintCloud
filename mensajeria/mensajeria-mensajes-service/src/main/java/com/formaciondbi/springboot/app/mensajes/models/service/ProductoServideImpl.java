@@ -1,4 +1,4 @@
-package com.formaciondbi.springboot.app.productos.models.service;
+package com.formaciondbi.springboot.app.mensajes.models.service;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.formaciondbi.springboot.app.productos.models.dao.ProductoDao;
-import com.formaciondbi.springboot.app.productos.models.entity.Producto;
+import com.formaciondbi.springboot.app.mensajes.models.dao.ProductoDao;
+import com.formaciondbi.springboot.app.mensajes.models.entity.Producto;
 
 
 @Service

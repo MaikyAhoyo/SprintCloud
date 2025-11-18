@@ -1,4 +1,4 @@
-package com.formaciondbi.springboot.app.productos;
+package com.formaciondbi.springboot.app.mensajes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

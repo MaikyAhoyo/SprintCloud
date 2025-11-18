@@ -1,4 +1,4 @@
-package com.formaciondbi.springboot.app.productos.controllers;
+package com.formaciondbi.springboot.app.mensajes.controllers;
 
 import java.util.Date;
 import java.util.List;
@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.formaciondbi.springboot.app.productos.models.entity.Producto;
-import com.formaciondbi.springboot.app.productos.models.service.IProductoService;
+import com.formaciondbi.springboot.app.mensajes.models.entity.Producto;
+import com.formaciondbi.springboot.app.mensajes.models.service.IProductoService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @RestController

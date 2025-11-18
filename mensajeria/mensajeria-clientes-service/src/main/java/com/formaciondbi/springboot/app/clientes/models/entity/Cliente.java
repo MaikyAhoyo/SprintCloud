@@ -15,18 +15,19 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "Clientes")
 public class Cliente implements Serializable {
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1159404504017828780L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
-	private long id;
+	private Long id;
+	
+	@Column(unique = true)
 	private String nombre;
-	private int edad;
+	
+	@Column(unique = true)
 	private String email; 
+	
+	private int edad;
 	
 	@Column(name = "create_at")
 	@Temporal(TemporalType.DATE)
@@ -34,10 +35,10 @@ public class Cliente implements Serializable {
 	
 	private Integer port;
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNombre() {

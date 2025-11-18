@@ -7,6 +7,7 @@ import com.formaciondbi.springboot.app.clientes.models.entity.Cliente;
 public interface IClienteService {
     List<Cliente> findAll();
     Cliente findById(Long id);
+    Cliente findByNombre(String nombre);
     Cliente findByEmail(String email);
     Cliente save(Cliente cliente);
     void delete(Long id);

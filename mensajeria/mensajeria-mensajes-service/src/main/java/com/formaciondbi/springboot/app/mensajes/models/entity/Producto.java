@@ -1,4 +1,4 @@
-package com.formaciondbi.springboot.app.productos.models.entity;
+package com.formaciondbi.springboot.app.mensajes.models.entity;
 
 import java.io.Serializable;
 import java.util.Date;
