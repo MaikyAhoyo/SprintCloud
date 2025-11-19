@@ -14,7 +14,7 @@ spring:
            - Path=/api/mensajes/**
           filters:
             - StripPrefix=2
-        - id: productos-service
+        - id: chat-service
           uri: lb://chat-service
           predicates:
             - Path=/api/chat/**

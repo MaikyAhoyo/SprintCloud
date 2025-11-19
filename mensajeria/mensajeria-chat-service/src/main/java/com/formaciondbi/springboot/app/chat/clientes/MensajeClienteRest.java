@@ -5,7 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.formaciondbi.springboot.app.chat.models.Mensaje;
 
-@FeignClient(name = "servicio-mensajes")
+@FeignClient(name = "mensajes-service")
 public interface MensajeClienteRest {
 
     @GetMapping("/listar")
