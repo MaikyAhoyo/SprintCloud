@@ -1,4 +1,4 @@
-package com.formaciondbi.springboot.app.ventas;
+package com.formaciondbi.springboot.app.chat;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -14,9 +14,9 @@ public class AppConfig {
 		return new RestTemplate();
 	}
 	
-	@Bean("productoRest")
+	@Bean("mensajeRest")
 	@LoadBalanced
-	public RestTemplate registrarProductoTemplate() {
+	public RestTemplate registrarMensajeTemplate() {
 		return new RestTemplate();
 	}
 }

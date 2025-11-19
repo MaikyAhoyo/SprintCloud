@@ -2,12 +2,6 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: productos-service
-          uri: lb://chat-service
-          predicates:
-            - Path=/api/chat/**
-          filters:
-            - StripPrefix=2
         - id: clientes-service
           uri: lb://clientes-service
           predicates:
@@ -15,8 +9,14 @@ spring:
           filters:
             - StripPrefix=2
         - id: ventas-service
-          uri: lb://mensaje-service
+          uri: lb://mensajes-service
           predicates:
-           - Path=/api/mensaje/**
+           - Path=/api/mensajes/**
+          filters:
+            - StripPrefix=2
+        - id: productos-service
+          uri: lb://chat-service
+          predicates:
+            - Path=/api/chat/**
           filters:
             - StripPrefix=2

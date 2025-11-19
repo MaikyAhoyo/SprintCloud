@@ -1,21 +1,19 @@
-package com.formaciondbi.springboot.app.ventas.models;
+package com.formaciondbi.springboot.app.chat.models;
 
 import java.io.Serializable;
-import java.util.Date;
 
-public class Cliente implements Serializable {
+public class Usuario implements Serializable {
 	private static final long serialVersionUID = -6707141959397402627L;
-	private long id;
+	private Long id;
 	private String nombre;
 	private int edad;
 	private String email; 
-	private Date createAt;
 	private Integer port;
 	
 	public long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNombre() {
@@ -35,12 +33,6 @@ public class Cliente implements Serializable {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public Date getCreateAt() {
-		return createAt;
-	}
-	public void setCreateAt(Date createAt) {
-		this.createAt = createAt;
 	}
 	public Integer getPort() {
 		return port;

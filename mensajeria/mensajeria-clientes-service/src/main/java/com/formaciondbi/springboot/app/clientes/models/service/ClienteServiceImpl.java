@@ -9,9 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.formaciondbi.springboot.app.clientes.models.dao.ClienteDao;
 import com.formaciondbi.springboot.app.clientes.models.entity.Cliente;
 
-
 @Service
-public class ClienteServiceImpl implements IClienteService{
+public class ClienteServiceImpl implements IClienteService {
 	
 	@Autowired
 	private ClienteDao clienteDao;
@@ -19,7 +18,7 @@ public class ClienteServiceImpl implements IClienteService{
 	@Override
 	@Transactional(readOnly = true)
 	public List<Cliente> findAll() {
-		return (List<Cliente>) clienteDao.findAll();
+		return clienteDao.findAll(); 
 	}
 
 	@Override
@@ -41,11 +40,13 @@ public class ClienteServiceImpl implements IClienteService{
     }
     
     @Override
+    @Transactional
     public Cliente save(Cliente cliente) {
         return clienteDao.save(cliente);
     }
 
     @Override
+    @Transactional
     public void delete(Long id) {
         clienteDao.deleteById(id);
     }

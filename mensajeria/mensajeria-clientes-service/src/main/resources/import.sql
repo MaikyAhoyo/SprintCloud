@@ -1,5 +1,5 @@
-INSERT INTO clientes (nombre, edad, email, create_at) VALUES ('Gael', 21, 'gael@email.com',  NOW());
-INSERT INTO clientes (nombre, edad, email, create_at) VALUES ('Sofia', 19, 'sofia@email.com',  NOW());
+INSERT INTO clientes (nombre, edad, email, create_at) VALUES ('DsGael', 21, 'gaelborchardt@gmail.com',  NOW());
+INSERT INTO clientes (nombre, edad, email, create_at) VALUES ('MaikyAhoyo', 19, 'arroyomiguel590@gmail.com',  NOW());
 INSERT INTO clientes (nombre, edad, email, create_at) VALUES ('Diego', 25, 'diego@email.com',  NOW());
 INSERT INTO clientes (nombre, edad, email, create_at) VALUES ('Valeria', 23, 'valeria@email.com',  NOW());
 INSERT INTO clientes (nombre, edad, email, create_at) VALUES ('Mateo', 28, 'mateo@email.com', NOW());
